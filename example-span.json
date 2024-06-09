@@ -1,0 +1,57 @@
+{
+    "resource": {
+      "attributes": {
+        "service.name": "yourServiceName",
+        "telemetry.sdk.language": "nodejs",
+        "telemetry.sdk.name": "opentelemetry",
+        "telemetry.sdk.version": "1.25.0",
+        "service.version": "1.0",
+        "process.pid": 93111,
+        "process.executable.name": "node",
+        "process.executable.path": "/usr/bin/node",
+        "process.command_args": [
+          "/usr/bin/node",
+          "/home/martin/repos/practical-otel/practical-otel-js/node_modules/.bin/ts-node",
+          "--require",
+          "./instrumentation.ts",
+          "index.ts"
+        ],
+        "process.runtime.version": "20.13.1",
+        "process.runtime.name": "nodejs",
+        "process.runtime.description": "Node.js",
+        "process.command": "/home/martin/repos/practical-otel/practical-otel-js/node_modules/.bin/ts-node",
+        "process.owner": "martin",
+        "host.name": "Pearl",
+        "host.arch": "amd64"
+      }
+    },
+    "traceId": "4d14e08326a6da54c3af29506c87c513",
+    "parentId": null,
+    "traceState": null,
+    "name": "GET /",
+    "id": "4d07e6b841c2574d",
+    "kind": 1,
+    "timestamp": 1717871048569000,
+    "duration": 31276.984,
+    "attributes": {
+      "http.url": "http://localhost:8080/",
+      "http.host": "localhost:8080",
+      "net.host.name": "localhost",
+      "http.method": "GET",
+      "http.scheme": "http",
+      "http.target": "/",
+      "http.user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0",
+      "http.flavor": "1.1",
+      "net.transport": "ip_tcp",
+      "net.host.ip": "::1",
+      "net.host.port": 8080,
+      "net.peer.ip": "::1",
+      "net.peer.port": 44534,
+      "http.status_code": 304,
+      "http.status_text": "NOT MODIFIED",
+      "http.route": "/"
+    },
+    "status": { "code": 0 },
+    "events": [],
+    "links": []
+}
