@@ -5,3 +5,18 @@ Content-Type: application/json
     "firstname": "martin",
     "surename": "dotnet"
 }
+
+###
+
+POST http://localhost:8080/pay
+Content-Type: application/json
+
+{
+    "productId": 10,
+    "price": 45.43 ,
+    "priceWithMarkup": 3405.34
+}
+
+###
+
+GET http://localhost:8080/price?productId=1&categoryId=10&price=45.43

@@ -1,6 +1,7 @@
 import { NodeSDK } from '@opentelemetry/sdk-node';
 import { ConsoleSpanExporter } from '@opentelemetry/sdk-trace-node';
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
+import { ExpressLayerType } from '@opentelemetry/instrumentation-express';
 import {
   PeriodicExportingMetricReader,
   ConsoleMetricExporter,
@@ -23,6 +24,9 @@ const sdk = new NodeSDK({
   instrumentations: [getNodeAutoInstrumentations({
       '@opentelemetry/instrumentation-fs': {
         enabled: false,
+      },
+      '@opentelemetry/instrumentation-express': {
+        ignoreLayersType: [ExpressLayerType.MIDDLEWARE, ExpressLayerType.REQUEST_HANDLER],
       },
     }),
   ],
