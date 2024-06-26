@@ -1,5 +1,4 @@
 import { NodeSDK } from '@opentelemetry/sdk-node';
-import { ConsoleSpanExporter } from '@opentelemetry/sdk-trace-node';
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
 import { ExpressLayerType } from '@opentelemetry/instrumentation-express';
 import {
@@ -11,15 +10,18 @@ import {
   SEMRESATTRS_SERVICE_VERSION,
 } from '@opentelemetry/semantic-conventions';
 import { Resource } from '@opentelemetry/resources';
+import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';
+import { OTLPLogExporter } from '@opentelemetry/exporter-logs-otlp-proto';
+import { OTLPMetricExporter } from '@opentelemetry/exporter-metrics-otlp-proto';
 
 const sdk = new NodeSDK({
   resource: new Resource({
     [SEMRESATTRS_SERVICE_NAME]: 'practical-opentelemetry-js',
     [SEMRESATTRS_SERVICE_VERSION]: '1.0',
   }),
-  traceExporter: new ConsoleSpanExporter(),
+  traceExporter: new OTLPTraceExporter(),
   metricReader: new PeriodicExportingMetricReader({
-    exporter: new ConsoleMetricExporter(),
+    exporter: new OTLPMetricExporter(),
   }),
   instrumentations: [getNodeAutoInstrumentations({
       '@opentelemetry/instrumentation-fs': {
